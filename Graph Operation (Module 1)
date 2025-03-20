@@ -1,0 +1,14 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+
+class GraphOperations:
+    @staticmethod
+    def detect_deadlock(graph):
+        """
+        Detects deadlock in the resource allocation graph.
+        """
+        try:
+            cycle = nx.find_cycle(graph, orientation="original")
+            return True, cycle
+        except nx.NetworkXNoCycle:
+            return False, None
