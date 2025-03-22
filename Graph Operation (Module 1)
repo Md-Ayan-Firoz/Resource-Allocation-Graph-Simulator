@@ -12,3 +12,12 @@ class GraphOperations:
             return True, cycle
         except nx.NetworkXNoCycle:
             return False, None
+
+
+    @staticmethod
+    def draw_graph(graph):
+        """
+        Draws the resource allocation graph using matplotlib.
+        """
+        plt.figure(figsize=(8, 6))
+        pos = nx.spring_layout(graph)
