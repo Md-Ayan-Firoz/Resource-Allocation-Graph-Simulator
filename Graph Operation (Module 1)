@@ -21,3 +21,9 @@ class GraphOperations:
         """
         plt.figure(figsize=(8, 6))
         pos = nx.spring_layout(graph)
+
+# Draw nodes
+        process_nodes = [node for node in graph.nodes if node.startswith("P")]
+        resource_nodes = [node for node in graph.nodes if node.startswith("R")]
+        nx.draw_networkx_nodes(graph, pos, nodelist=process_nodes, node_color="lightblue", node_shape="s", label="Processes")
+        nx.draw_networkx_nodes(graph, pos, nodelist=resource_nodes, node_color="lightgreen", node_shape="o", label="Resources")
