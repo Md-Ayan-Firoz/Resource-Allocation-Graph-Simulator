@@ -27,3 +27,9 @@ class GraphOperations:
         resource_nodes = [node for node in graph.nodes if node.startswith("R")]
         nx.draw_networkx_nodes(graph, pos, nodelist=process_nodes, node_color="lightblue", node_shape="s", label="Processes")
         nx.draw_networkx_nodes(graph, pos, nodelist=resource_nodes, node_color="lightgreen", node_shape="o", label="Resources")
+
+ # Draw edges
+        request_edges = [(u, v) for u, v, d in graph.edges(data=True) if d["type"] == "request"]
+        assignment_edges = [(u, v) for u, v, d in graph.edges(data=True) if d["type"] == "assignment"]
+        nx.draw_networkx_edges(graph, pos, edgelist=request_edges, edge_color="red", arrowstyle="->", label="Request")
+        nx.draw_networkx_edges(graph, pos, edgelist=assignment_edges, edge_color="blue", arrowstyle="->", label="Assignment")
