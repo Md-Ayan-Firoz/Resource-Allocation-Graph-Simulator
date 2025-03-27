@@ -37,3 +37,4 @@ class GraphOperations:
 # Draw labels
         labels = {node: node for node in graph.nodes}
         nx.draw_networkx_labels(graph, pos, labels)
+        plt.legend(scatterpoints=1)
