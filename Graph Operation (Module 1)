@@ -38,3 +38,5 @@ class GraphOperations:
         labels = {node: node for node in graph.nodes}
         nx.draw_networkx_labels(graph, pos, labels)
         plt.legend(scatterpoints=1)
+        plt.title("Resource Allocation Graph")
+        plt.show()
