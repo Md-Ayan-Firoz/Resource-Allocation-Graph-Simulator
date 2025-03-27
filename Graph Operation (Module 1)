@@ -33,3 +33,7 @@ class GraphOperations:
         assignment_edges = [(u, v) for u, v, d in graph.edges(data=True) if d["type"] == "assignment"]
         nx.draw_networkx_edges(graph, pos, edgelist=request_edges, edge_color="red", arrowstyle="->", label="Request")
         nx.draw_networkx_edges(graph, pos, edgelist=assignment_edges, edge_color="blue", arrowstyle="->", label="Assignment")
+
+# Draw labels
+        labels = {node: node for node in graph.nodes}
+        nx.draw_networkx_labels(graph, pos, labels)
